@@ -41,3 +41,13 @@ ORDER BY fh.TOTAL_ORDER DESC
 
 
 
+## 흉부외과 또는 일반외과 의사 목록 출력하기
+
+```sql
+SELECT d.DR_NAME, d.DR_ID, d.MCDP_CD, DATE_FORMAT(d.HIRE_YMD, '%Y-%m-%d') as HIRE_YMD
+FROM DOCTOR d
+WHERE d.MCDP_CD = 'CS' OR d.MCDP_CD = 'GS'
+ORDER BY HIRE_YMD DESC, DR_NAME ASC
+```
+
+- `Y`는 2000 네 자리, `y`는 20 두 자리
