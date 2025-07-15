@@ -51,3 +51,16 @@ ORDER BY HIRE_YMD DESC, DR_NAME ASC
 ```
 
 - `Y`는 2000 네 자리, `y`는 20 두 자리
+
+
+
+## 12세 이하인 여자 환자 목록 출력하기
+
+```sql
+SELECT p.PT_NAME, p.PT_NO, p.GEND_CD, p.AGE, COALESCE(p.TLNO, 'NONE') as TLNO
+FROM PATIENT p
+WHERE p.AGE <= 12 AND p.GEND_CD = 'W'
+ORDER BY p.AGE DESC, p.PT_NAME ASC
+```
+
+- 컬럼의 기본값을 지정하려면 `COALESCE` 함수를 사용하면 된다.
