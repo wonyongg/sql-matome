@@ -64,3 +64,15 @@ ORDER BY p.AGE DESC, p.PT_NAME ASC
 ```
 
 - 컬럼의 기본값을 지정하려면 `COALESCE` 함수를 사용하면 된다.
+
+
+
+## 인기있는 아이스크림
+
+```sql
+SELECT fh.FLAVOR
+FROM FIRST_HALF fh
+GROUP BY fh.FLAVOR
+ORDER BY fh.TOTAL_ORDER DESC, fh.SHIPMENT_ID ASC 
+```
+
