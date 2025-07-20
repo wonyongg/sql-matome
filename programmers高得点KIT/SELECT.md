@@ -86,3 +86,14 @@ FROM BOOK b
 WHERE b.PUBLISHED_DATE >= '2021-01-01' AND b.PUBLISHED_DATE <= '2021-12-31' AND b.CATEGORY = '인문'
 ```
 
+
+
+## 평균 일일 대여 요금 구하기
+
+```sql
+SELECT ROUND(AVG(c.DAILY_FEE)) as AVERAGE_FEE
+FROM CAR_RENTAL_COMPANY_CAR c
+WHERE c.CAR_TYPE = 'SUV';
+```
+
+- `Round` 함수 사용 시, 소수 첫번째 자리에서 반올림하는 경우 두번째 파라미터 값을 비워두면 된다.
