@@ -97,3 +97,16 @@ WHERE c.CAR_TYPE = 'SUV';
 ```
 
 - `Round` 함수 사용 시, 소수 첫번째 자리에서 반올림하는 경우 두번째 파라미터 값을 비워두면 된다.
+
+
+
+## 3월에 태어난 여성 회원 목록 출력하기
+
+```sql
+SELECT m.MEMBER_ID, m.MEMBER_NAME, m.GENDER, DATE_FORMAT(m.DATE_OF_BIRTH, '%Y-%m-%d') as DATE_OF_BIRTH
+FROM MEMBER_PROFILE m
+WHERE m.GENDER = 'W' AND m.TLNO IS NOT NULL AND MONTH(m.DATE_OF_BIRTH) = 3
+```
+
+- 특정 컬럼의 값이 `NULL`인 경우 이를 출력 결과에서 제외하고 싶으면 `IS NOT NULL`을 사용하면 된다.
+- 특정 월만 검색하고 싶은 경우 `MONTH()` 함수를 사용하면 된다. `YEAR`도 있다.
