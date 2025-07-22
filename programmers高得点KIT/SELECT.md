@@ -110,3 +110,15 @@ WHERE m.GENDER = 'W' AND m.TLNO IS NOT NULL AND MONTH(m.DATE_OF_BIRTH) = 3
 
 - 특정 컬럼의 값이 `NULL`인 경우 이를 출력 결과에서 제외하고 싶으면 `IS NOT NULL`을 사용하면 된다.
 - 특정 월만 검색하고 싶은 경우 `MONTH()` 함수를 사용하면 된다. `YEAR`도 있다.
+
+
+
+## 강원도에 위치한 생산공장 목록 출력하기
+
+```sql
+SELECT f.FACTORY_ID, f.FACTORY_NAME, f.ADDRESS
+FROM FOOD_FACTORY f
+WHERE f.ADDRESS LIKE '강원도%'
+ORDER BY f.FACTORY_ID ASC
+```
+
