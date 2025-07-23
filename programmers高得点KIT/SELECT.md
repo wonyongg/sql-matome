@@ -122,3 +122,20 @@ WHERE f.ADDRESS LIKE '강원도%'
 ORDER BY f.FACTORY_ID ASC
 ```
 
+
+
+## 재구매가 일어난 상품과 회원 리스트 구하기
+
+```sql
+SELECT os.USER_ID, os.PRODUCT_ID
+FROM ONLINE_SALE os
+GROUP BY os.USER_ID, os.PRODUCT_ID
+HAVING count(*) >= 2
+ORDER BY os.USER_ID ASC, os.PRODUCT_ID DESC
+```
+
+- `GROUP BY`에 적힌 컬럼은 해당 컬럼을 그룹으로 묶는다는 뜻이다.
+  - `USER_ID`, `PRODUCT_ID`를 묶어 하나로 보는 것.
+- `HAVING`에서 조건을 적을 수 있는데 `count(*)`에서 `*`는 테이블의 전체 행을 의미한다.
+  - 즉, 그룹 안의 행의 수를 뜻한다.
+  - 여기서는 `USER_ID`, `PRODUCT_ID`를 묶은 것을 기준으로 하는 행의 개수이므로 같은 값을 가진 행의 개수가 2 개 이상인 경우를 찾는 것이다.
