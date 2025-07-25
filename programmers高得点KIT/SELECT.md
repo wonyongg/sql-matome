@@ -150,3 +150,13 @@ FROM ANIMAL_INS ai
 ORDER BY ai.ANIMAL_ID ASC
 ```
 
+
+
+## 역순 정렬하기
+
+```sql
+SELECT ai.NAME, ai.DATETIME
+FROM ANIMAL_INS ai
+ORDER BY ai.ANIMAL_ID DESC
+```
+
