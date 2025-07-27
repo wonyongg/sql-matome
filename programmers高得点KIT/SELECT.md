@@ -180,3 +180,15 @@ ORDER BY SALES_DATE ASC, PRODUCT_ID ASC, USER_ID ASC
 
 - `UNION ALL`로 판매 데이터를 합치고, 없는 컬럼은 `NULL`을 넣어 표시한다.
 - `ORDER BY`의 경우 결과값에 대한 전체 SQL문에 적용된다.
+
+
+
+## 아픈 동물 찾기
+
+```sql
+SELECT ai.ANIMAL_ID, ai.NAME
+FROM ANIMAL_INS ai
+WHERE INTAKE_CONDITION = 'Sick'
+ORDER BY ai.ANIMAL_ID
+```
+
