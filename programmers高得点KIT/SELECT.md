@@ -223,3 +223,16 @@ FROM ANIMAL_INS
 ORDER BY NAME ASC, DATETIME DESC
 ```
 
+
+
+## 상위 n개 레코드
+
+```sql
+SELECT NAME
+FROM ANIMAL_INS
+ORDER BY DATETIME ASC
+LIMIT 1
+```
+
+- 상위 n 개의 레코드만 출력하고 싶을 때는 `LIMIT n`을 사용한다.
+- 날짜의 경우 과거 우선이면 `ASC`, 미래가 우선이면 `DESC`이다.
