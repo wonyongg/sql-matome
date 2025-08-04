@@ -236,3 +236,18 @@ LIMIT 1
 
 - 상위 n 개의 레코드만 출력하고 싶을 때는 `LIMIT n`을 사용한다.
 - 날짜의 경우 과거 우선이면 `ASC`, 미래가 우선이면 `DESC`이다.
+
+
+
+## 조건에 맞는 회원수 구하기
+
+```sql
+SELECT COUNT(*) AS USERS
+FROM USER_INFO
+WHERE JOINED BETWEEN '2021-01-01' AND '2021-12-31'
+AND AGE BETWEEN 20 AND 29
+```
+
+- 총 개수 구하기 `COUNT(*)`
+- `BETWEEN`은 `AND`와 함께 사용
+- 만약, 시간까지 포함이면 별도의 `>=`를 사용하는 것이 마지막 날 `23:59:59` 를 포함하므로 안전
