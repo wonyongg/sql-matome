@@ -251,3 +251,22 @@ AND AGE BETWEEN 20 AND 29
 - 총 개수 구하기 `COUNT(*)`
 - `BETWEEN`은 `AND`와 함께 사용
 - 만약, 시간까지 포함이면 별도의 `>=`를 사용하는 것이 마지막 날 `23:59:59` 를 포함하므로 안전
+
+
+
+## 업그레이드 된 아이템 구하기
+
+```sql
+SELECT ii.ITEM_ID, ii.ITEM_NAME, ii.RARITY
+FROM ITEM_TREE it JOIN ITEM_INFO ii ON it.ITEM_ID = ii.ITEM_ID
+WHERE it.PARENT_ITEM_ID IN (
+    SELECT iis.ITEM_ID
+    FROM ITEM_INFO iis
+    WHERE iis.RARITY = 'RARE' 
+    )
+ORDER BY ii.ITEM_ID DESC
+```
+
+- 서브 쿼리를 통해 `ITEM`의 `RARITY`가 `RARE`인 경우를 찾는다. 
+- 서브 쿼리의 `ITEM_ID` 값이 메인 쿼리의 `PARENT_ITEM_ID` 값과 같은 경우를 조건으로 건다.
+- 이렇게 되면 해당 `PARENT_ITEM_ID`의 같은 행 `ITEM_ID` 값이, 서브 쿼리의 업글레이드 시 `ITEM_ID`가 된다.
