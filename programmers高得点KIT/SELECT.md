@@ -270,3 +270,15 @@ ORDER BY ii.ITEM_ID DESC
 - 서브 쿼리를 통해 `ITEM`의 `RARITY`가 `RARE`인 경우를 찾는다. 
 - 서브 쿼리의 `ITEM_ID` 값이 메인 쿼리의 `PARENT_ITEM_ID` 값과 같은 경우를 조건으로 건다.
 - 이렇게 되면 해당 `PARENT_ITEM_ID`의 같은 행 `ITEM_ID` 값이, 서브 쿼리의 업글레이드 시 `ITEM_ID`가 된다.
+
+
+
+## Python 개발자 찾기
+
+```sql
+SELECT ID, EMAIL, FIRST_NAME, LAST_NAME
+FROM DEVELOPER_INFOS
+WHERE SKILL_1 = 'Python' OR SKILL_2 = 'Python' OR SKILL_3 = 'Python'
+ORDER BY ID ASC
+```
+
