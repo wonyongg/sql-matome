@@ -295,3 +295,22 @@ WHERE s.NAME IN ('Python', 'C#')
 ORDER BY d.ID ASC;
 ```
 
+- **`JOIN SKILLCODES s ON (d.SKILL_CODE & s.CODE) > 0`**
+   → 개발자의 스킬 코드에 해당 스킬이 켜져 있는지 비트 연산으로 확인
+- **`WHERE s.NAME IN ('Python', 'C#')`**
+   → Python이나 C# 중 하나라도 해당되면 포함
+- **`DISTINCT`**
+   → 한 개발자가 Python과 C# 둘 다 있으면 중복 제거
+- **`ORDER BY d.ID ASC`**
+   → ID 오름차순 정렬
+
+
+
+## 잔챙이 잡은 수 구하기
+
+```sql
+SELECT COUNT(*) AS FISH_COUNT
+FROM FISH_INFO
+WHERE LENGTH IS NULL
+```
+
