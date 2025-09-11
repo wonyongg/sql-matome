@@ -326,3 +326,16 @@ LIMIT 10
 ```
 
 - `LIMIT`으로 필요한 개수만 조회 가능
+
+
+
+특정 물고기를 잡은 총 수 구하기
+
+```sql
+SELECT COUNT(*) AS FISH_COUNT
+FROM FISH_INFO fi
+JOIN FISH_NAME_INFO fni
+ON fi.FISH_TYPE = fni.FISH_TYPE
+WHERE fni.FISH_NAME = 'BASS' OR fni.FISH_NAME = 'SNAPPER'
+```
+
