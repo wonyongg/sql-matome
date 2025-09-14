@@ -329,7 +329,7 @@ LIMIT 10
 
 
 
-특정 물고기를 잡은 총 수 구하기
+## 특정 물고기를 잡은 총 수 구하기
 
 ```sql
 SELECT COUNT(*) AS FISH_COUNT
@@ -337,5 +337,23 @@ FROM FISH_INFO fi
 JOIN FISH_NAME_INFO fni
 ON fi.FISH_TYPE = fni.FISH_TYPE
 WHERE fni.FISH_NAME = 'BASS' OR fni.FISH_NAME = 'SNAPPER'
+```
+
+
+
+## 대장균들의 자식의 수 구하기
+
+```sql
+SELECT e.ID,
+       COALESCE(c.CHILD_COUNT, 0) AS CHILD_COUNT
+FROM ECOLI_DATA e
+LEFT JOIN (
+    SELECT PARENT_ID, COUNT(*) AS CHILD_COUNT
+    FROM ECOLI_DATA
+    WHERE PARENT_ID IS NOT NULL
+    GROUP BY PARENT_ID
+) c
+ON e.ID = c.PARENT_ID
+ORDER BY e.ID;
 ```
 
